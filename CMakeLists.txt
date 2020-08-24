@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project(leaf-area)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(leaf_area leaf_area.cpp)
+target_link_libraries(leaf_area ${OpenCV_LIBS})

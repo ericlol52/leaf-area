@@ -1,0 +1,5 @@
+*
+!.gitignore
+!CMakeLists.txt
+!leaf_area.cpp
+!cabernet_leaf.jpg
