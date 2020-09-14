@@ -3,3 +3,8 @@
 !CMakeLists.txt
 !leaf_area.cpp
 !cabernet_leaf.jpg
+
+!video-proc
+!video-proc/main.cpp
+!video-proc/vineyard.mp4
+!video-proc/CMakeLists.txt
