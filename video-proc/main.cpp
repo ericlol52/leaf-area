@@ -5,8 +5,6 @@
 #include <opencv2/videoio.hpp>
 #include <opencv2/stitching.hpp>
 
-#define SAVE_IMG
-
 cv::Stitcher::Mode mode = cv::Stitcher::PANORAMA;
 
 void usage(char *app_name)
@@ -46,17 +44,17 @@ int main(int argc, char **argv)
         if (frame.empty())
             break;
 
-        rotate(frame, frame, cv::ROTATE_180);
+        cv::rotate(frame, frame, cv::ROTATE_180);
         frames.push_back(frame.clone());
     }
 
 #ifdef SHOW_IMGS
     const char *winname = "Current Frame";
-    namedWindow(winname, WINDOW_AUTOSIZE);
+    cv::namedWindow(winname, cv::WINDOW_AUTOSIZE);
 
     for (const auto& f : frames) {
-        imshow(winname, f);
-        waitKey(-1);
+        cv::imshow(winname, f);
+        cv::waitKey(-1);
     }
 #endif
 
@@ -68,11 +66,11 @@ int main(int argc, char **argv)
     }
 
 #ifdef SHOW_IMGS
-    imshow("result", pano);
-    waitKey(-1);
+    cv::imshow("result", pano);
+    cv::waitKey(-1);
 #endif
 #ifdef SAVE_IMG
-    imwrite("result.jpg", pano);
+    cv::imwrite("result.jpg", pano);
 #endif
 
     return 0;
